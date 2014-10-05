@@ -1,7 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lynx_mine", "lynx_mine\lynx_mine.csproj", "{F51EC3B7-8BBF-4DD2-920F-780CA3DA3AA5}"
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "lynx_mine\Web.csproj", "{F51EC3B7-8BBF-4DD2-920F-780CA3DA3AA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{6A2F8E59-0D82-4BC3-90F1-061E26AFF6D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C7F5FB37-409E-40B0-BEA5-DE27F8F65517}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +22,10 @@ Global
 		{F51EC3B7-8BBF-4DD2-920F-780CA3DA3AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F51EC3B7-8BBF-4DD2-920F-780CA3DA3AA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F51EC3B7-8BBF-4DD2-920F-780CA3DA3AA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A2F8E59-0D82-4BC3-90F1-061E26AFF6D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A2F8E59-0D82-4BC3-90F1-061E26AFF6D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A2F8E59-0D82-4BC3-90F1-061E26AFF6D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A2F8E59-0D82-4BC3-90F1-061E26AFF6D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

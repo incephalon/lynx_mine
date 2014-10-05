@@ -1,61 +1,43 @@
 ﻿body {
-    font-size: .85em;
-    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
-    color: #232323;
-    background-color: #fff;
+  padding: 10px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
-header, footer, nav, section {
-    display: block;
+a {
+  color: #00B7FF;
 }
-
-
-/* Styles for basic forms
------------------------------------------------------------*/
-fieldset {
-    border: 1px solid #ddd;
-    padding: 0 1.4em 1.4em 1.4em;
-    margin: 0 0 1.5em 0;
+.embed-responsive-item {
+  height: 550px;
+  width: 100%;
 }
-
-legend {
-    font-size: 1.2em;
-    font-weight: bold;
+.article-note {
+  height: 400px !important;
 }
-
-textarea {
-    min-height: 75px;
+.glyphicon-refresh-animate {
+  -animation: spin .7s infinite linear;
+  -webkit-animation: spin2 .7s infinite linear;
 }
-
-.editor-label {
-    margin: 1em 0 0 0;
+@-webkit-keyframes spin2 {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
-
-.editor-field {
-    margin: 0.5em 0 0 0;
+@keyframes spin {
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+  to {
+    transform: scale(1) rotate(360deg);
+  }
 }
-
-
-/* Styles for validation helpers
------------------------------------------------------------*/
-.field-validation-error {
-    color: #f00;
+.chosen-container {
+  width: 100% !important;
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
 }
-
-.field-validation-valid {
-    display: none;
+.header-input {
+  margin-bottom: 15px !important;
 }
-
-.input-validation-error {
-    border: 1px solid #f00;
-    background-color: #fee;
-}
-
-.validation-summary-errors {
-    font-weight: bold;
-    color: #f00;
-}
-
-.validation-summary-valid {
-    display: none;
-}
+/*# sourceMappingURL=Site.css.map */
