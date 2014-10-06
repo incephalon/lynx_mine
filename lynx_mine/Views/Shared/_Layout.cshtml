@@ -4,18 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
-    <script src="~/Scripts/jquery-1.9.0.min.js"></script>
-	<script src="~/Scripts/bootstrap.min.js"></script>
-	<script src="~/Scripts/Site.js"></script>
-	<script src="~/Scripts/chosen.jquery.js"></script>
-	<script src="~/Scripts/ajax-chosen.js"></script>
-
-	<link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/Content/Site.min.css" rel="stylesheet" />
-	<link href="~/Content/bootstrap-chosen.min.css" rel="stylesheet" />
+    @Styles.Render("~/Content/site.min.css")
+    @Scripts.Render("~/scripts/main.min.js")
 </head>
 <body>
     @RenderBody()
