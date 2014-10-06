@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Configurations
 {
-	public class ArticleConfiguration : EntityTypeConfiguration<ArticleModel>
+	public class ArticleConfiguration : EntityTypeConfiguration<Article>
 	{
 		public ArticleConfiguration()
 		{
@@ -18,6 +18,9 @@ namespace DataAccess.Configurations
 				.IsRequired();
 			Property(x => x.Note)
 				.IsOptional();
+
+            HasMany(x => x.Tags)
+                .WithMany();
 
 			ToTable("Articles");
 		}

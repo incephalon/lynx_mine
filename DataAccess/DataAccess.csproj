@@ -49,9 +49,9 @@
     <Compile Include="Configurations\ArticleConfiguration.cs" />
     <Compile Include="Configurations\TagConfiguration.cs" />
     <Compile Include="DataContext.cs" />
-    <Compile Include="Model\ArticleModel.cs" />
+    <Compile Include="Model\Article.cs" />
     <Compile Include="Model\Abstract\PersistentModel.cs" />
-    <Compile Include="Model\TagModel.cs" />
+    <Compile Include="Model\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

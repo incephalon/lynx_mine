@@ -4,7 +4,7 @@
     <!--Determines if the bundle file should be automatically optimized after creation/update.-->
     <minify>true</minify>
     <!--Determin whether to generate/re-generate this bundle on building the solution.-->
-    <runOnBuild>false</runOnBuild>
+    <runOnBuild>true</runOnBuild>
     <!--Specifies a custom subfolder to save files to. By default, compiled output will be placed in the same folder and nested under the original file.-->
     <outputDirectory />
   </settings>
@@ -16,8 +16,7 @@
     <file>/Scripts/jquery.validate.js</file>
     <file>/Scripts/jquery.validate.unobtrusive.js</file>
     <file>/Scripts/modernizr-2.8.3.js</file>
-    <file>/Scripts/ajax-chosen.js</file>
-    <file>/Scripts/chosen.jquery.js</file>
+	  <file>/Scripts/bootstrap-tagsinput.js</file>
     <file>/Scripts/Site.js</file>
   </files>
 </bundle>

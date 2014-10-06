@@ -1,11 +1,11 @@
-﻿@model DataAccess.Model.ArticleModel
+﻿@model lynx_mine.Model.ArticleModel
 @{
 	ViewBag.Title = "Index";
 }
 
 
 <div class="col-sm-12">
-	@using (Ajax.BeginForm("Index", "Home", new AjaxOptions { HttpMethod = "Post" }))
+	@using (Ajax.BeginForm("Manage", "Home", new AjaxOptions { HttpMethod = "Post" }))
 	{
 		<div class="col-xs-8 col-sm-8">
 			<div class="row show-grid header-input">
@@ -28,13 +28,9 @@
 
 			@Html.Partial("Search")
 
-			<div id="tagId" type="text" class="form-control" style="display:none"></div>
-			<textarea id="notesElement" class="form-control article-note" rows="3" placeholder="My notes"></textarea>
-
-
-			<select data-placeholder="Tags" multiple class="chosen-select">
-			</select>
-
+			<input type="hidden" id="id" name="id" />
+			<textarea name="note" class="form-control article-note" rows="3" placeholder="My notes"></textarea>
+			<input name="tags" value=""/>
 			<button id="saveButton" type="submit" class="btn btn-primary">Save</button>
 			<button id="clearButton" type="reset" class="btn btn-primary">clear</button>
 		</div>

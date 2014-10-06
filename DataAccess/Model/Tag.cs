@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Model
 {
-	public class TagModel : PersistentModel
+	public class Tag : PersistentModel
 	{
 		public string Name { get; set; }
-
-		public virtual ICollection<ArticleModel> Articles { get; set; }
 	}
 }

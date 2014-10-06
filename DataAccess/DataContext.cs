@@ -12,8 +12,8 @@ namespace DataAccess
 {
 	public class DataContext:DbContext
 	{
-		public DbSet<ArticleModel> Articles { get; set; }
-		public DbSet<TagModel> Tags { get; set; }
+		public DbSet<Article> Articles { get; set; }
+		public DbSet<Tag> Tags { get; set; }
 
 		public DataContext()
 			: base("DataContext")

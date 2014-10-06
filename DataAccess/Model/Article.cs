@@ -7,11 +7,16 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Model
 {
-	public class ArticleModel : PersistentModel
+	public class Article : PersistentModel
 	{
+        public Article()
+        {
+            Tags = new List<Tag>();
+        }
+
 		public string Url { get; set; }
 		public string Note { get; set; }
 
-		public virtual ICollection<TagModel> Tags { get; set; }
+		public ICollection<Tag> Tags { get; set; }
 	}
 }

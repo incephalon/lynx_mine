@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Configurations
 {
-	public class TagConfiguration : EntityTypeConfiguration<TagModel>
+	public class TagConfiguration : EntityTypeConfiguration<Tag>
 	{
 		public TagConfiguration()
 		{
@@ -16,9 +16,6 @@ namespace DataAccess.Configurations
 			Property(x => x.Name)
 				.HasMaxLength(255)
 				.IsRequired();
-
-			HasMany(x => x.Articles)
-				.WithMany();
 
 			ToTable("Tags");
 		}

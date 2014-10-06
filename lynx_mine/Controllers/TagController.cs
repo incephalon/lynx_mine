@@ -17,10 +17,10 @@ namespace lynx_mine.Controllers
 
         public JsonResult Index([FromUri]string term)
         {
-            List<TagModel> tags = _dbContext.Tags.Where(x => x.Name.Contains(term)).ToList();
+            List<Tag> tags = _dbContext.Tags.Where(x => x.Name.Contains(term)).ToList();
             if (!tags.Exists(x => x.Name == term))
             {
-                tags.Add(new TagModel { Name = term });
+                tags.Add(new Tag { Name = term });
             }
             return Json(tags, JsonRequestBehavior.AllowGet);
         }
