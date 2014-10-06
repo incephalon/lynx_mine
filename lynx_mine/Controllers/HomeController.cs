@@ -39,7 +39,7 @@ namespace lynx_mine.Controllers
             article.Note = model.Note;
             if (!string.IsNullOrWhiteSpace(model.Tags))
             {
-                var tags = model.Tags.Split(',').Select(x => x.Trim());
+                var tags = model.Tags.Split(' ').Select(x => x.Trim());
                 foreach (var t in article.Tags)
                     if (!tags.Contains(t.Name))
                         article.Tags.Remove(t);
