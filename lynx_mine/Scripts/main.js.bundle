@@ -16,6 +16,7 @@
     <file>/Scripts/jquery.validate.js</file>
     <file>/Scripts/jquery.validate.unobtrusive.js</file>
     <file>/Scripts/modernizr-2.8.3.js</file>
+  	<file>/Scripts/typeahead.js</file>
 	  <file>/Scripts/bootstrap-tagsinput.js</file>
     <file>/Scripts/Site.js</file>
   </files>
