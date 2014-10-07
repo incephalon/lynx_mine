@@ -20,7 +20,7 @@ namespace DataAccess.Configurations
 				.IsOptional();
 
             HasMany(x => x.Tags)
-                .WithMany();
+                .WithMany(x => x.Articles);
 
 			ToTable("Articles");
 		}

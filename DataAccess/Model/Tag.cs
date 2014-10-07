@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Model
 {
-	public class Tag : PersistentModel
+	public class Tag : Persistent
 	{
+		public Tag()
+        {
+            Articles = new List<Article>();
+        }
+
 		public string Name { get; set; }
+
+		public ICollection<Article> Articles { get; set; }
 	}
 }

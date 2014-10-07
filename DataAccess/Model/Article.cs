@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Model
 {
-	public class Article : PersistentModel
+	public class Article : Persistent
 	{
         public Article()
         {

@@ -16,13 +16,28 @@ namespace lynx_mine.Controllers
             get { return _dbContext ?? (_dbContext = new DataContext()); }
         }
 
-        [HttpGet]
-        public ActionResult Index()
-        {
-            return View();
-        }
+
+		[HttpGet]
+		public ActionResult Index(int? id)
+		{
+			if(id == null)
+				return View(new ArticleModel());
+			Article article = DbContext.Articles.Include(x => x.Tags).FirstOrDefault(x => x.Id == id);
+			if(article != null)
+			{
+				ArticleModel am = new ArticleModel { 
+					Id = article.Id,
+					Note = article.Note,
+					Url = article.Url,
+					Tags = article.Tags.Select(x => x.Name).ToList()
+				};
+				return View(am);
+			}
+			return View(new ArticleModel());
+		}
 
         [HttpPost]
+		[ValidateInput(false)]
         public ActionResult Manage(ArticleModel model)
         {
             Article article = null;
@@ -33,18 +48,18 @@ namespace lynx_mine.Controllers
                     .FirstOrDefault();
             else
                 article = new Article { };
+				
             if (article == null)
                 throw new HttpException();
             article.Url = model.Url;
             article.Note = model.Note;
-            if (!string.IsNullOrWhiteSpace(model.Tags))
+			if (model.Tags != null && model.Tags.Count > 0)
             {
-                var tags = model.Tags.Split(' ').Select(x => x.Trim());
                 foreach (var t in article.Tags)
-                    if (!tags.Contains(t.Name))
+					if (!model.Tags.Contains(t.Name))
                         article.Tags.Remove(t);
-                       
-                foreach(var t in tags)
+
+				foreach (var t in model.Tags)
                     if (!article.Tags.Any(x => x.Name == t))
                     {
                         var tag = DbContext.Tags.FirstOrDefault(x => x.Name == t);
@@ -54,7 +69,10 @@ namespace lynx_mine.Controllers
                             article.Tags.Add(new Tag { Name = t });
                     }
             }
-            return View("Index");
+			if (!model.Id.HasValue)
+				DbContext.Articles.Add(article);
+			DbContext.SaveChanges();
+            return View(new ArticleModel());
         }
     }
 }

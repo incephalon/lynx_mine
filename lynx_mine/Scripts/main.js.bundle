@@ -11,13 +11,15 @@
   <!--The order of the <file> elements determines the order of the files in the bundle.-->
   <files>
     <file>/Scripts/jquery-2.1.1.js</file>
+	  <file>/Scripts/jquery-ui-1.11.1.js</file>
     <file>/Scripts/bootstrap.js</file>
     <file>/Scripts/jquery.unobtrusive-ajax.js</file>
     <file>/Scripts/jquery.validate.js</file>
     <file>/Scripts/jquery.validate.unobtrusive.js</file>
     <file>/Scripts/modernizr-2.8.3.js</file>
-  	<file>/Scripts/typeahead.js</file>
-	  <file>/Scripts/bootstrap-tagsinput.js</file>
+	  <file>/Scripts/summernote.js</file>
+	  <file>/Scripts/chosen.jquery.js</file>
+	  <file>/Scripts/ajax-chosen.js</file>
     <file>/Scripts/Site.js</file>
   </files>
 </bundle>

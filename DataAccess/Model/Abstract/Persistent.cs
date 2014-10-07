@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Model
 {
-	public class PersistentModel
+	public class Persistent
 	{
 		public int Id { get; set; }
 	}

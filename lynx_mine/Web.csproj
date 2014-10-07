@@ -135,6 +135,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -143,18 +144,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-tagsinput.css">
-      <DependentUpon>bootstrap-tagsinput.less</DependentUpon>
-    </Content>
-    <Content Include="Content\bootstrap-tagsinput.min.css">
-      <DependentUpon>bootstrap-tagsinput.css</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap\bootstrap.css">
       <DependentUpon>bootstrap.less</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap\bootstrap.min.css">
       <DependentUpon>bootstrap.css</DependentUpon>
     </Content>
+    <Content Include="Content\chosen-sprite%402x.png" />
+    <Content Include="Content\chosen-sprite.png" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Site.css">
       <DependentUpon>Site.less</DependentUpon>
@@ -162,6 +160,39 @@
     <Content Include="Content\Site.min.css">
       <DependentUpon>Site.css</DependentUpon>
     </Content>
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.less" />
     <Content Include="Content\Site.css.map">
@@ -243,15 +274,59 @@
     <Content Include="Content\bootstrap\bootstrap.css.map">
       <DependentUpon>bootstrap.css</DependentUpon>
     </Content>
-    <Content Include="Scripts\bootstrap-tagsinput.js" />
+    <Content Include="Scripts\ajax-chosen.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Content\bootstrap-tagsinput.less" />
+    <Content Include="Content\summernote.less" />
+    <Content Include="Content\elements.less" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\font-awesome\bordered-pulled.less" />
+    <Content Include="Content\font-awesome\core.less" />
+    <Content Include="Content\font-awesome\fixed-width.less" />
+    <Content Include="Content\font-awesome\font-awesome.less" />
+    <Content Include="Content\font-awesome\icons.less" />
+    <Content Include="Content\font-awesome\larger.less" />
+    <Content Include="Content\font-awesome\list.less" />
+    <Content Include="Content\font-awesome\mixins.less" />
+    <Content Include="Content\font-awesome\path.less" />
+    <Content Include="Content\font-awesome\rotated-flipped.less" />
+    <Content Include="Content\font-awesome\spinning.less" />
+    <Content Include="Content\font-awesome\stacked.less" />
+    <Content Include="Content\font-awesome\variables.less" />
+    <Content Include="Content\bootstrap-chosen.less" />
+    <Content Include="Content\jq-ui-bootstrap\accordion.less" />
+    <Content Include="Content\jq-ui-bootstrap\autocomplete.less" />
+    <Content Include="Content\jq-ui-bootstrap\base.less" />
+    <Content Include="Content\jq-ui-bootstrap\button.less" />
+    <Content Include="Content\jq-ui-bootstrap\core.less" />
+    <Content Include="Content\jq-ui-bootstrap\datepicker.less" />
+    <Content Include="Content\jq-ui-bootstrap\dialog.less" />
+    <Content Include="Content\jq-ui-bootstrap\icons.less" />
+    <Content Include="Content\jq-ui-bootstrap\jq-ui-bootstrap-mixin-adapter.less" />
+    <Content Include="Content\jq-ui-bootstrap\jq-ui-bootstrap-variable-adapter.less" />
+    <Content Include="Content\jq-ui-bootstrap\jq-ui-bootstrap.less" />
+    <Content Include="Content\jq-ui-bootstrap\menu.less" />
+    <Content Include="Content\jq-ui-bootstrap\misc.less" />
+    <Content Include="Content\jq-ui-bootstrap\progressbar.less" />
+    <Content Include="Content\jq-ui-bootstrap\resizable.less" />
+    <Content Include="Content\jq-ui-bootstrap\selectable.less" />
+    <Content Include="Content\jq-ui-bootstrap\slider.less" />
+    <Content Include="Content\jq-ui-bootstrap\spinner.less" />
+    <Content Include="Content\jq-ui-bootstrap\tabs.less" />
+    <Content Include="Content\jq-ui-bootstrap\toolbar.less" />
+    <Content Include="Content\jq-ui-bootstrap\tooltip.less" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\chosen.jquery.js" />
+    <Content Include="Scripts\chosen.jquery.min.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery-2.1.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.11.1.js" />
+    <Content Include="Scripts\jquery-ui.min-1.11.1.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -266,7 +341,7 @@
     </Content>
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Site.js" />
-    <Content Include="Scripts\typeahead.js" />
+    <Content Include="Scripts\summernote.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -281,10 +356,13 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
-    <Content Include="Scripts\main.js.bundle" />
+    <Content Include="Scripts\main.js.bundle">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\main.min.js.map">
       <DependentUpon>main.min.js</DependentUpon>
     </Content>
+    <Content Include="Views\Search\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
