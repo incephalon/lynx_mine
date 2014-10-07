@@ -5,24 +5,20 @@ using DataAccess.Model;
 using System.Linq;
 using System.Data.Entity;
 using System.Web;
+using System;
 
 namespace lynx_mine.Controllers
 {
     public class HomeController : Controller
     {
-        private DataContext _dbContext;
-        private DataContext DbContext
-        {
-            get { return _dbContext ?? (_dbContext = new DataContext()); }
-        }
-
+        private Lazy<DataContext> _dbContext = new Lazy<DataContext>(() => new DataContext());
 
 		[HttpGet]
 		public ActionResult Index(int? id)
 		{
 			if(id == null)
 				return View(new ArticleModel());
-			Article article = DbContext.Articles.Include(x => x.Tags).FirstOrDefault(x => x.Id == id);
+            Article article = _dbContext.Value.Articles.Include(x => x.Tags).FirstOrDefault(x => x.Id == id);
 			if(article != null)
 			{
 				ArticleModel am = new ArticleModel { 
@@ -42,7 +38,7 @@ namespace lynx_mine.Controllers
         {
             Article article = null;
             if (model.Id.HasValue)
-                article = DbContext.Articles
+                article = _dbContext.Value.Articles
                     .Include(x => x.Tags)
                     .Where(x => x.Id == model.Id)
                     .FirstOrDefault();
@@ -62,7 +58,7 @@ namespace lynx_mine.Controllers
 				foreach (var t in model.Tags)
                     if (!article.Tags.Any(x => x.Name == t))
                     {
-                        var tag = DbContext.Tags.FirstOrDefault(x => x.Name == t);
+                        var tag = _dbContext.Value.Tags.FirstOrDefault(x => x.Name == t);
                         if (tag != null)
                             article.Tags.Add(tag);
                         else
@@ -70,9 +66,17 @@ namespace lynx_mine.Controllers
                     }
             }
 			if (!model.Id.HasValue)
-				DbContext.Articles.Add(article);
-			DbContext.SaveChanges();
+                _dbContext.Value.Articles.Add(article);
+            _dbContext.Value.SaveChanges();
             return View(new ArticleModel());
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+                if (_dbContext.IsValueCreated)
+                    _dbContext.Value.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

@@ -30,5 +30,13 @@ namespace lynx_mine.Controllers
                     Tags = x.Tags.Select(y => y.Name).ToList()
                 }).ToList());
 		}
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+                if (_dbContext.IsValueCreated)
+                    _dbContext.Value.Dispose();
+            base.Dispose(disposing);
+        }
     }
 }
