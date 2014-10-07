@@ -55,7 +55,7 @@ namespace lynx_mine.Controllers
             article.Note = model.Note;
 			if (model.Tags != null && model.Tags.Count > 0)
             {
-                foreach (var t in article.Tags)
+                foreach (var t in article.Tags.ToList())
 					if (!model.Tags.Contains(t.Name))
                         article.Tags.Remove(t);
 
