@@ -16,9 +16,7 @@ namespace lynx_mine.Controllers
         {
 			List<string> tags = _dbContext.Value.Tags.Where(x => x.Name.Contains(term)).Select(n => n.Name).ToList();
             if (!tags.Exists(x => x == term))
-            {
                 tags.Add(term);
-            }
             return Json(tags, JsonRequestBehavior.AllowGet);
         }
 

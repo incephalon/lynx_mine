@@ -1,8 +1,4 @@
-﻿$(document).ready(function () {
-	$("#goTag").on("click", function () {
-		window.location = "/Search/Index?term=" + $("#goText").val();
-	});
-
+﻿function init_manage_page() {
 	$("#goButton").on("click", function () {
 		$("#" + $(this).attr("data-iframeId"))
 			.attr("src", $('#' + $(this).attr("data-textboxId"))[0].value);
@@ -28,16 +24,12 @@
 				response(data);
 			});
 		},
-		//select: function (event, ui) {
-		//	$(this).val(ui.item.value);
-		//	window.location = "/Search/Index?term=aaa";
-		//},
 		minLength: 2
 	});
 	$("[name=Note]").summernote({
 		height: 300
 	});
-});
+}
 
 function Reset()
 {

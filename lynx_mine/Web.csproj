@@ -363,6 +363,7 @@
       <DependentUpon>main.min.js</DependentUpon>
     </Content>
     <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Home\Manage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

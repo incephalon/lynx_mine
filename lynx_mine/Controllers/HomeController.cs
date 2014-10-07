@@ -32,6 +32,26 @@ namespace lynx_mine.Controllers
 			return View(new ArticleModel());
 		}
 
+		[HttpGet]
+		public ActionResult Manage(int? id)
+		{
+			if (id == null)
+				return PartialView(new ArticleModel());
+			Article article = _dbContext.Value.Articles.Include(x => x.Tags).FirstOrDefault(x => x.Id == id);
+			if (article != null)
+			{
+				ArticleModel am = new ArticleModel
+				{
+					Id = article.Id,
+					Note = article.Note,
+					Url = article.Url,
+					Tags = article.Tags.Select(x => x.Name).ToList()
+				};
+				return PartialView(am);
+			}
+			return PartialView(new ArticleModel());
+		}
+
         [HttpPost]
 		[ValidateInput(false)]
         public ActionResult Manage(ArticleModel model)
@@ -68,7 +88,8 @@ namespace lynx_mine.Controllers
 			if (!model.Id.HasValue)
                 _dbContext.Value.Articles.Add(article);
             _dbContext.Value.SaveChanges();
-            return View(new ArticleModel());
+			model.Id = article.Id;
+            return PartialView(model);
         }
 
         protected override void Dispose(bool disposing)
