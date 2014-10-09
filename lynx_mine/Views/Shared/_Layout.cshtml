@@ -7,8 +7,12 @@
     @Styles.Render("~/Content/site.min.css")
     @Scripts.Render("~/scripts/main.min.js")
 </head>
-<body>
+<body class="container-fluid">
     @RenderBody()
     @RenderSection("scripts", required: false)
+    <div id="loader">
+        <div class="loader double"></div>
+        <div class="overlay"></div>
+    </div>
 </body>
 </html>

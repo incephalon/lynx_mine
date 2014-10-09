@@ -3,14 +3,22 @@
 @import "font-awesome/font-awesome.less";
 @import "bootstrap-chosen.less";
 @import "jq-ui-bootstrap/jq-ui-bootstrap.less";
+@import "tokenfield-typeahead.less";
+@import "bootstrap-tokenfield.less";
 
 body {
     padding: 10px;
     font: 14px "Lucida Grande",Helvetica,Arial,sans-serif;
 }
 
-#goTag{
-    cursor:pointer;
+#goTag {
+    cursor: pointer;
+}
+
+.ui-menu-item {
+    padding: 4px 0;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 a {
@@ -18,9 +26,9 @@ a {
 }
 
 .bootstrap-tagsinput {
-  width: 100% !important;
-  margin-top:15px;
-  margin-bottom:15px;
+    width: 100% !important;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .embed-responsive-item {
@@ -57,14 +65,96 @@ a {
     }
 }
 
-.chosen-container
-{
-    width:100% !important;
-    margin-top:15px !important;
-    margin-bottom:15px !important;
+.chosen-container {
+    width: 100% !important;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
 }
 
-.header-input
-{
-     margin-bottom:15px !important;
+.header-input {
+    margin-bottom: 15px !important;
+}
+
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: none;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+
+
+    .overlay {
+        background-color: #f8f8f8;
+        opacity: 0.3;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+    }
+
+    .loader {
+        z-index: 5;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -25px;
+        margin-top: -25px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        border-style: solid;
+        -moz-animation: loader 500ms linear infinite;
+        -o-animation: loader 500ms linear infinite;
+        -webkit-animation: loader 500ms linear infinite;
+        animation: loader 500ms linear infinite;
+
+        &.spin {
+            border-width: 1px 1px 2px;
+            border-color: #5320df;
+            box-shadow: 0 1px #5320df;
+        }
+
+        &.double {
+            border-width: 2px;
+            border-color: #5320df transparent;
+        }
+    }
+}
+
+@-moz-keyframes loader {
+    to {
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes loader {
+    to {
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loader {
+    to {
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }

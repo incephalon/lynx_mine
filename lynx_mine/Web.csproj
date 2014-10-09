@@ -144,6 +144,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-tokenfield.css">
+      <DependentUpon>bootstrap-tokenfield.less</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-tokenfield.min.css">
+      <DependentUpon>bootstrap-tokenfield.css</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap\bootstrap.css">
       <DependentUpon>bootstrap.less</DependentUpon>
     </Content>
@@ -193,6 +199,12 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\tokenfield-typeahead.css">
+      <DependentUpon>tokenfield-typeahead.less</DependentUpon>
+    </Content>
+    <Content Include="Content\tokenfield-typeahead.min.css">
+      <DependentUpon>tokenfield-typeahead.css</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="Content\Site.less" />
     <Content Include="Content\Site.css.map">
@@ -275,6 +287,7 @@
       <DependentUpon>bootstrap.css</DependentUpon>
     </Content>
     <Content Include="Scripts\ajax-chosen.js" />
+    <Content Include="Scripts\bootstrap-tokenfield.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\summernote.less" />
@@ -318,6 +331,14 @@
     <Content Include="Content\jq-ui-bootstrap\tabs.less" />
     <Content Include="Content\jq-ui-bootstrap\toolbar.less" />
     <Content Include="Content\jq-ui-bootstrap\tooltip.less" />
+    <Content Include="Content\bootstrap-tokenfield.less" />
+    <Content Include="Content\tokenfield-typeahead.less" />
+    <Content Include="Content\tokenfield-typeahead.css.map">
+      <DependentUpon>tokenfield-typeahead.css</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-tokenfield.css.map">
+      <DependentUpon>bootstrap-tokenfield.css</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\chosen.jquery.js" />
     <Content Include="Scripts\chosen.jquery.min.js" />

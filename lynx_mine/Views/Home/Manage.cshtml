@@ -1,6 +1,6 @@
 ﻿@model lynx_mine.Model.ArticleModel
 
-@using (Ajax.BeginForm("Manage", "Home", null, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "manage", InsertionMode = InsertionMode.ReplaceWith }, new { id = "manage" }))
+@using (Ajax.BeginForm("Manage", "Home", null, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "manage", InsertionMode = InsertionMode.ReplaceWith, LoadingElementId = "loader" }, new { id = "manage" }))
 {
     <div class="col-xs-8 col-sm-8">
         <div class="row show-grid header-input">
@@ -21,10 +21,16 @@
     </div>
     <div class="col-xs-4 col-sm-4">
         @Html.HiddenFor(x => x.Id)
-        @Html.TextAreaFor(x => x.Note)
-        @Html.ListBoxFor(x => x.Tags, new MultiSelectList(Model.Tags), new { @class = "chosen-select", data_placeholder = "Tags", multiple = "" })
-        <button id="saveButton" type="submit" class="btn btn-primary">Save</button>
-        <button id="clearButton" onclick="Reset()" type="reset" class="btn btn-primary">Clear</button>
+        <div class="form-group">
+            @Html.TextAreaFor(x => x.Note)
+        </div>
+        <div class="form-group">
+            @Html.TextBox("TagsString", string.Join(",", Model.Tags), new { @class = "chosen-select", placeholder = "Tags" })
+        </div>
+        <div class="form-group">
+            <button id="saveButton" type="submit" class="btn btn-primary">Save</button>
+            <button id="clearButton" onclick="Reset()" type="reset" class="btn btn-primary">Clear</button>
+        </div>
     </div>
     <script>
         $(function () {

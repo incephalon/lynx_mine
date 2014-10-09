@@ -15,15 +15,15 @@
       jsonTermKey: "term",
       keepTypingMsg: "Keep typing...",
       lookingForMsg: "Looking for",
-	  notFoundMsg: "Not found"
+      notFoundMsg: "Not found"
     };
     select = this;
     chosenXhr = null;
     options = $.extend({}, defaultOptions, $(select).data(), settings);
     this.chosen(chosenOptions ? chosenOptions : {});
     return this.each(function() {
-    	return $(this).next('.chosen-container').find(".search-field > input, .chosen-search > input").bind('keyup', function (event) {
-    	var keyCode = event.keyCode;
+        return $(this).next('.chosen-container').find(".search-field > input, .chosen-search > input").bind('keyup', function (event) {
+        var keyCode = event.keyCode;
         var field, msg, success, untrimmed_val, val;
         untrimmed_val = $(this).val();
         val = $.trim($(this).val());
@@ -49,15 +49,15 @@
         }
         error = options.error;
         options.error = function (data) {
-        	msg = val.length < options.minTermLength ? options.keepTypingMsg : options.notFoundMsg + (" '" + val + "'");
-        	select.next('.chosen-container').find('.no-results').text(msg);
+            msg = val.length < options.minTermLength ? options.keepTypingMsg : options.notFoundMsg + (" '" + val + "'");
+            select.next('.chosen-container').find('.no-results').text(msg);
         };
         success = options.success;
         options.success = function(data) {
           var items, nbItems, selected_values;
           if (data == null) {
-          	msg = val.length < options.minTermLength ? options.keepTypingMsg : options.notFoundMsg + (" '" + val + "'");
-          	select.next('.chosen-container').find('.no-results').text(msg);
+            msg = val.length < options.minTermLength ? options.keepTypingMsg : options.notFoundMsg + (" '" + val + "'");
+            select.next('.chosen-container').find('.no-results').text(msg);
             return;
           }
           selected_values = [];
@@ -109,7 +109,7 @@
             }
           });
           if (nbItems) {
-          	select.trigger("chosen:updated");
+            select.trigger("chosen:updated");
           } else {
             select.data().chosen.no_results_clear();
             select.data().chosen.no_results(field.val());

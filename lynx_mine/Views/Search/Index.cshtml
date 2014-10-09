@@ -5,25 +5,25 @@
 }
 
 <div class="row">
-	<div class="col-md-8 col-md-offset-2">
-	<h2>We found @Model.Count() result(s):</h2>
+    <div class="col-md-8 col-md-offset-2">
+    <h2>We found @Model.Count() result(s):</h2>
 
-	@foreach (var item in Model)
-	{
-		<div class="panel panel-info">
-			<div class="panel-heading">
-				<h4><a href="@Html.DisplayFor(modelItem => item.Url)">@Html.DisplayFor(modelItem => item.Url)</a>@Ajax.ActionLink("Edit", "Manage", "Home", new { id = item.Id }, new AjaxOptions { InsertionMode=InsertionMode.Replace, UpdateTargetId="content" }, new { @class = "btn pull-right btn-danger" })</h4>
-				@foreach (var tag in item.Tags)
-				{
-					<span class="label label-success">@tag</span>
-				}
-			</div>
+    @foreach (var item in Model)
+    {
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4><a href="@Html.DisplayFor(modelItem => item.Url)">@Html.DisplayFor(modelItem => item.Url)</a>@Ajax.ActionLink("Edit", "Manage", "Home", new { id = item.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "content", LoadingElementId = "loader" }, new { @class = "btn pull-right btn-danger" })</h4>
+                @foreach (var tag in item.Tags)
+                {
+                    <span class="label label-success">@tag</span>
+                }
+            </div>
 
-			<div class="panel-body">
-				@Html.Raw(item.Note)
-			</div>
-			
-		</div>
-	}
-		</div>
+            <div class="panel-body">
+                @Html.Raw(item.Note)
+            </div>
+            
+        </div>
+    }
+        </div>
 </div>
